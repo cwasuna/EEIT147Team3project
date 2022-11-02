@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+#tab {
+    background-color: transparent;
+}
+
+/* 頁籤ul */
+#tab>ul {
+    /* overflow: hidden; */
+    
+    margin: 0;
+    padding: 20px 20px  20px;
+    
+
+}
+
+#tab>ul>li {
+    /* width: 50%; */
+    list-style-type: none;
+   
+    
+
+}
+
+/* 頁籤上的文字 */
+#tab>ul>li>a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    font-weight:bold;
+    width: 200px;
+    height: 50px;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    /* padding-top: 15px;
+    padding-right: 237px;
+    padding-bottom: 15px;
+    padding-left: 237px; */
+}
+
+
+
+/*頁籤div內容*/
+#tab>div {
+    border-radius: 10px;
+    clear: both;
+    padding: 0 15px;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+
+}
+
+.tab-content-border {
+    border-radius: 20px;
+}
+
+/*第一筆的底色*/
+span:target~#tab>ul li:first-child a {
+    background: #eaeaea;
+    border-radius: 0 10px 0 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+span:target~#tab>div:first-of-type {
+    visibility: hidden;
+    height: 0;
+    padding: 0 15px;
+}
+
+/*第二筆的底色*/
+span:target~#tab>ul li a{
+    background: #eaeaea;
+    border-radius: 10px 10px 0 0;
+}
+
+/*頁籤變換&第一筆*/
+span~#tab>ul li:first-child a,
+#tab-1:target~#tab>ul li a[href$="#tab-1"],
+#tab-2:target~#tab>ul li a[href$="#tab-2"] {
+    background: #bcbcbce2;
+    border-radius: 10px 10px 0 0;
+}
+
+span~#tab>ul li:first-child a::before,
+#tab-1:target~#tab>ul li a[href$="#tab-1"]::before,
+#tab-2:target~#tab>ul li a[href$="#tab-2"]::before {
+    background-color: white;
+    height: 100%;
+}
+
+/*頁籤內容顯示&第一筆*/
+span~#tab>div:first-of-type,
+#tab-1:target~#tab>div.tab-content-1,
+#tab-2:target~#tab>div.tab-content-2 {
+    visibility: visible;
+    height: auto;
+    background: #bcbcbce2
+}
+
+span {
+    display: none;
+}
